@@ -10,7 +10,7 @@ javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
-output_style = :expanded
+output_style = :nested
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
@@ -24,3 +24,7 @@ output_style = :expanded
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+
+#Bei expanded wird die CSS mit viel Leeraum dargstellt, bei compressed wird alles in eine Zeile geschrieben -- keine unnötigen Leerräume
+#Bei nested wird es ähnlich CSS Stil angezeigt -- jede Eigenschaft eigene Linie, bei compact wird es so dargstellt body{.....} und in der nächsten Zeile die nächste Definition

@@ -1,9 +1,25 @@
 @import "compass/reset";
 @import "compass/css3";
 
-body {
+
+$black: #000;
+$creme: #fafafa;
+$red: #d9534f;
+$gelb: #f0ad4e;
+$green: #5cb85c;
+$white: #d3d3d3;
+
+@mixin font-smoothing(){
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+}
+
+body {
+
+    @include font-smoothing();
+    /*-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
 
     font-family:'Open Sans', sans-serif;
 }
@@ -16,20 +32,29 @@ body {
 
 
 input[type="text"],input[type="password"] {
-    border:1px solid #000;
+    border:1px solid $black;
     padding:5px;
     margin:10px 5px 10px 5px;
 
     width: 180px;
 }
+input [type="submit"]{
+    @extend input[type="text"],input[type="password"];
+    border-radius: 0;
+    cursor: pointer;
+    background-color: $creme;
+    padding: 0;
+    width: 0;
 
-input[type="submit"] {
-    border:1px solid #000;
+
+}
+/*input[type="submit"] {
+    border:1px solid $black;
     border-radius:0;
-    background-color:#fafafa;
+    background-color:$creme;
     margin:10px 5px 10px 5px;
     cursor:pointer;
-}
+} */
 
 label {
     margin-left:5px;
@@ -41,8 +66,9 @@ label {
 }
 
 .passwordFeedback {
+    @extend .passwordField
     width:250px;
-    float:left;
+
 }
 
 .feedback {
@@ -50,29 +76,104 @@ label {
     font-size:11px;
     font-weight:600;
 
+    .error{
+        color: $red;
+    }
+
+    .warning {
+        color: $gelb;
+    }
+
+    .success {
+        color: $green;
+    }
+
 }
 
-.feedback.error {
-    color:#d9534f;
+/*.feedback.error {
+    color:$red;
 }
 
 .feedback.warning {
-    color:#f0ad4e;
+    color:$gelb;
 }
 
 .feedback.success {
-    color:#5cb85c;
-}
+    color:$green;
+}*/
 
 .strengthIndicator {
     margin:10px 5px 10px 5px;
     width: 200px;
     padding:5px;
     height: 13px;
-    border:1px solid #d3d3d3;
+    border:1px solid $white;
+
+    &::before{
+        content: "";
+        display: block;
+        height: 100%;
+
+        @include transition-property();
+        @include transition-delay();
+        @include transition-duration();
+        @include transition-timing-function();
+
+
+        /*-moz-transition-property: width;
+        -o-transition-property: width;
+        -webkit-transition-property: width;
+        transition-property: width;
+
+        -moz-transition-delay: 0;
+        -o-transition-delay: 0;
+        -webkit-transition-delay: 0;
+        transition-delay: 0;
+
+        -moz-transition-duration: 250ms;
+        -o-transition-duration: 250ms;
+        -webkit-transition-duration: 250ms;
+        transition-duration: 250ms;
+
+        -moz-transition-timing-function: linear;
+        -o-transition-timing-function: linear;
+        -webkit-transition-timing-function: linear;
+        transition-timing-function: linear;*/
+    }
 }
 
-.strengthIndicator::before {
+@mixin transition-property(){
+    -moz-transition-property: width;
+    -o-transition-property: width;
+    -webkit-transition-property: width;
+    transition-property: width;
+}
+
+@mixin transition-delay(){
+    -moz-transition-delay: 0;           /* Warum erkennt er hier den Wert nicht an? */
+    -o-transition-delay: 0;
+    -webkit-transition-delay: 0;
+    transition-delay: 0;
+}
+
+@mixin transition-duration(){
+
+    -moz-transition-duration: 250ms;
+    -o-transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+}
+
+@mixin transition-timing-function(){
+
+    -moz-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+
+/*.strengthIndicator::before {
     content: "";
     display: block;
     height: 100%;
@@ -96,7 +197,7 @@ label {
     -o-transition-timing-function: linear;
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
-}
+} */
 
 .passwordWrapper::after {
     content: "";
@@ -107,17 +208,17 @@ label {
 
 .error .strengthIndicator::before {
     width: 10%;
-    background-color: #d9534f;
+    background-color: $red;
 }
 
 .warning .strengthIndicator::before {
     width: 60%;
-    background-color: #f0ad4e;
+    background-color: $gelb;
 }
 
 .success .strengthIndicator::before {
     width: 100%;
-    background-color: #5cb85c;
+    background-color: $green;
 }
 
 .feedback.error, .feedback.warning, .feedback.success {
@@ -135,4 +236,3 @@ label {
 .success .feedback.success {
     display: block;
 }
-
