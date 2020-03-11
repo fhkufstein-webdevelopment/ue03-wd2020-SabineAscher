@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* a) */
+
+@mixin margin($margin){
+
+    -moz-margin: $margin $margin $margin $margin ;
+    -o-margin: $margin $margin $margin $margin;
+    -webkit-margin: $margin $margin $margin $margin;
+    margin: $margin $margin $margin $margin;
+}
+
+@mixin breakpoint($breakpoint){
+
+    @media (min-width: 990px){
+        background-color: green;
+        content: "Media Queries"
+    }
+
+    @media (max-width: 989px){
+        background-color: blue;
+        content: "klein aber fein"
+    }
+
+}
+
+.mobileInvisible{
+
+    display:none;
+    @include breakpoint(990px){
+        display: block;
+    }
+}
+
+/*  Ich habe versucht, zwei eigene mixins zu schreiben,
+ wobei die Variable jeweils der Parameter ist,
+wobei der bei margin natürlich 4x einen anderen Wert
+annehmen kann, für left/right/top/bottom
+Beim mixin breakpoint muss man die width als Parameter eingeben, je nach dem wird dann die
+richtige media q. ausgewählt.
+Dann wusste ich allerdings nicht mehr, was zu tun war. Ich hab die Angaben übernommen.
+Es gibt nun logischerweise kein dazu passendes html Dokument und somit auch nichts, mit dem
+man es hätte ausprobieren können. Ich übergebe den Parameter 990px, wodurch die dazupassende
+Media q. ausgewählt wird und sich der Hintergrund der Ausgabe nun grün färben sollte.
+Allerdings bin ich mir nicht sicher, ob das richtig ist, so wie ich es gemacht habe...
+
+
+ */
