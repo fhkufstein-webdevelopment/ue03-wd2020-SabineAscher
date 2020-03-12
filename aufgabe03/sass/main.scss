@@ -9,36 +9,35 @@
 
 .btn {
 
-
-
-    /* TODO */
     @include transition-property(padding);
-    @include transition-delay(500ms);
-    @include transition-duration(300ms);
+    @include transition-delay(0ms);
+    @include transition-duration(30ms);
     @include transition-timing-function(linear);
+
+    /* je nach Einstellungen werden die Effekte sehr sehr langsam oder sehr schnell */
 
 
 
     &.ease-in {
-        /* TODO */
+
         @include transition-timing-function(ease-in);
 
     }
 
     &.ease-out {
-        /* TODO */
+
         @include transition-timing-function(ease-out);
 
     }
 
     &.ease-in-out {
-        /* TODO */
+
         @include transition-timing-function(ease-in-out);
 
     }
 
     &.green {
-        /* TODO */
+
         @include transition-property(padding);
 
     }
@@ -47,7 +46,7 @@
         position: absolute;     /* Hab einfach den Button 1 genommen */
         left:0;
         top:0;
-        /*animation-timing-function: linear; */
+        animation-timing-function: linear;
     }
 }
 
