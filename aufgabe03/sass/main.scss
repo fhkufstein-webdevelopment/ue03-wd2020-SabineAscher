@@ -1,7 +1,5 @@
-@charset "utf-8";
- @import "compass/reset";
-//sollte diese folgende Zeile zu einer Fehlermeldung führen - kommentieren Sie die folgende und die obere Zeile aus und kommentieren Sie die nachfolgende ein
- @import "compass/css3";
+@import "compass/reset";
+@import "compass/css3";
 
 
 
@@ -10,6 +8,9 @@
 
 
 .btn {
+
+
+
     /* TODO */
     @include transition-property(padding);
     @include transition-delay(500ms);
@@ -38,7 +39,7 @@
 
     &.green {
         /* TODO */
-        @include transistion-property(padding);
+        @include transition-property(padding);
 
     }
 
@@ -46,10 +47,7 @@
         position: absolute;     /* Hab einfach den Button 1 genommen */
         left:0;
         top:0;
-        right:auto;
-        bottom:auto;
-        animation-timing-function: linear;
-
+        /*animation-timing-function: linear; */
     }
 }
 
@@ -62,15 +60,10 @@ body:hover .animation {
     animation-iteration-count:infinite;
     animation-play-state: running;
 }
-            /* leider funktioniert meine Animation nicht, aber ich weiß nicht wieso. Ich habe schon  mehere Internetseiten konsultiert und schier alle Werte eingefügt, die man
-            bei einer Animation definieren kann, aber es rührt sich nichts...
-             */
+
 @keyframes myanimation {
-    0%      {margin-top: auto;}
-    25%     {margin-right: auto;}
-    50%     {margin-bottom: auto;}
-    75%     {margin-left: auto;}
-    100%    {margin-top: auto;}
+
+
 }
 
 
