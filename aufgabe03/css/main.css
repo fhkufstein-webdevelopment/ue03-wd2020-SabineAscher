@@ -201,10 +201,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body:hover .animation {
   animation-name: myanimation;
   animation-duration: 5s;
-  animation-delay: 2s;
-  animation-direction: normal;
-  animation-iteration-count: infinite;
-  animation-play-state: running; }
+}
 
 @keyframes myanimation {
   0% {top: 0; left: 0; }
