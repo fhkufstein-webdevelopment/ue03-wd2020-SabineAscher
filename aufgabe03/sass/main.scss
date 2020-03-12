@@ -54,14 +54,13 @@
 body:hover .animation {
     animation-name:myanimation;
     animation-duration:5s;
-    animation-delay: 2s;
-    animation-direction: normal;
-    animation-iteration-count:infinite;
-    animation-play-state: running;
+
 }
 
 @keyframes myanimation {
 
+    0% {top: 0; left: 0; }
+    25% {left: 93%; top: 0;}
 
 }
 

@@ -207,7 +207,11 @@ body:hover .animation {
   animation-play-state: running; }
 
 @keyframes myanimation {
-
+  0% {top: 0; left: 0; }
+  25% {left: 95%; top: 0;}
+  50% {left: 95%; top: 95%;}
+  75% {left: 0; top: 95%;}
+  100% {left: 0; top: 0;}
 }
 /* line 73, ../sass/main.scss */
 .btn:hover {
